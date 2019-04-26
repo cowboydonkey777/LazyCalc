@@ -1,3 +1,6 @@
+
+// Not sure if it's extra credit, but my AC button sets all text in the textbox to ""
+
 package com.example.lazycalc;
 
 import android.support.v7.app.AppCompatActivity;
@@ -52,7 +55,14 @@ public class MainActivity extends AppCompatActivity {
         btnNegPos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(calcText[0].substring(calcText[0].length() - 1).equals("-")){
+                    calcText[0] = calcText[0].substring(0, calcText[0].length() - 1);
+                }
+                else{
+                    calcText[0] = calcText[0].concat("-");
+                }
 
+                calcBox.setText(calcText[0]);
             }
         });
 
@@ -76,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
         btnEqual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                calcText[0] = calcText[0].concat(" = ");
+                calcText[0] = calcText[0].concat(" = "); // the calculator is you!
                 calcBox.setText(calcText[0]);
 
             }
